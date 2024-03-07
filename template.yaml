@@ -1,29 +1,27 @@
-apiVersion:
-backstage.io/v1alpha1
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
- name: my-node-app
- description: My Node.js Application
- annotations:
-backstage.io/managed-by:
-backstage
+  name: my-node-app
+  description: My Node.js Application
+  annotations:
+    backstage.io/managed-by: backstage
 spec:
- type: service
- lifecycle: production
- owner: team@example.com
- providesApis:
-   -
-     apiType: openapi
-     id: api-1
-     properties:
-       openApiDefinition: 'openapi: 3.0.0\ninfo:\n  title: My Node.js API\n  version: 1.0.0\npaths: {}'
- techDebt: 'low'
- template:
-   - apply:
-       - techdocs
-       - catalog-info
-       - api-docs
-       - nodejs
-       - jenkins:
-           baseUrl: 'http://18.218.194.167:8080/'
-           job: 'my-node-app-deploy'
+  type: service
+  lifecycle: production
+  owner: team@example.com
+  providesApis:
+    -
+      apiType: openapi
+      id: api-1
+      properties:
+        openApiDefinition: 'openapi: 3.0.0\ninfo:\n  title: My Node.js API\n  version: 1.0.0\npaths: {}'
+  techDebt: 'low'
+  template:
+    - apply:
+        - techdocs
+        - catalog-info
+        - api-docs
+        - nodejs
+        - jenkins:
+            baseUrl: 'http://18.218.194.167:8080/'
+            job: 'my-node-app-deploy'
