@@ -79,7 +79,7 @@ spec:
       action: jenkins:build
       input:
         baseUrl: 'http://18.218.194.167:8080/' # Replace with your Jenkins base URL
-        job: 'your-jenkins-job' # Replace with your Jenkins job name
+        job: '${{ parameters.jenkinsJobName }}' # Replace with your Jenkins job name
         parameters:
           - COMPONENT_ID: ${{ parameters.component_id }}
           - REPO_URL: ${{ parameters.repoUrl }}
@@ -91,7 +91,7 @@ spec:
       action: jenkins:deploy
       input:
         baseUrl: 'http://18.218.194.167:8080/' # Replace with your Jenkins base URL
-        job: 'your-jenkins-deploy-job' # Replace with your Jenkins deploy job name
+        job: '${{ parameters.jenkinsJobName }}' # Replace with your Jenkins deploy job name
         parameters:
           - COMPONENT_ID: ${{ parameters.component_id }}
           - REPO_URL: ${{ parameters.repoUrl }}
