@@ -25,5 +25,5 @@ spec:
        - api-docs
        - nodejs
        - jenkins:
-           baseUrl: '{{ required "JENKINS_BASE_URL" }}'
+           baseUrl: 'http://18.218.194.167:8080/'
            job: 'my-node-app-deploy'
