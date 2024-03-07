@@ -83,6 +83,8 @@ spec:
         parameters:
           - COMPONENT_ID: ${{ parameters.component_id }}
           - REPO_URL: ${{ parameters.repoUrl }}
+        onSuccess:
+          - deploy
 
     - id: deploy
       name: Deploy with Jenkins
