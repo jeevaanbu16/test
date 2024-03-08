@@ -6,10 +6,36 @@ metadata:
   description: ${{values.description | dump}}
   {%- endif %}
   annotations:
-    jenkins.io/job-full-name: "backstage/pipeline-testing"
+    jenkins.io/job-full-name: "backstage/pipeline-testing-1"
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
   lifecycle: experimental
   owner: ${{values.owner | dump}}
+  actions:
+    - id: 'jenkins:build'
+      action: 'jenkins.build'
+      description: 'Build with Jenkins'
+      input: 
+        baseUrl: 'http://18.218.194.167:8080/'  # Replace with your Jenkins base URL
+        job: ${{values.jenkinsJobName | dump}}  # Replace with your Jenkins job name
+        parameters:
+          - COMPONENT_ID: ${{values.component_id | dump}}
+          - REPO_URL: ${{values.repoUrl | dump}}
+      command:
+        - 'echo "Jenkins Build Triggered"'
+        # Add more commands as needed
+
+    - id: 'jenkins:deploy'
+      action: 'jenkins.deploy'
+      description: 'Deploy with Jenkins'
+      input: 
+        baseUrl: 'http://18.218.194.167:8080/'  # Replace with your Jenkins base URL
+        job: ${{values.jenkinsDeployJobName | dump}}  # Replace with your Jenkins deploy job name
+        parameters:
+          - COMPONENT_ID: ${{values.component_id | dump}}
+          - REPO_URL: ${{values.repoUrl | dump}}
+      command:
+        - 'echo "Jenkins Deploy Triggered"'
+        # Add more commands as needed
