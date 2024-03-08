@@ -6,7 +6,7 @@ metadata:
   description: ${{values.description | dump}}
   {%- endif %}
   annotations:
-    jenkins.io/job-full-name: "backstage/test-pipe-4"
+    jenkins.io/job-full-name: "backstage/pipeline-testing"
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
     backstage.io/techdocs-ref: dir:.
 spec:
