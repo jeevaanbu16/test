@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: react-ssr-template
+  name: react-ssr-template-test
   title: React SSR Template Test
   description: Create a website powered with Next.js
   tags:
